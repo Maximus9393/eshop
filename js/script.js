@@ -37,10 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       let formData = new FormData(form);
-
+  
       fetch('https://formspree.io/f/mnndjdaq', {
         method: 'POST',
-        body: formData
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
       })
       .then(response => response.json())
       .then(data => {
