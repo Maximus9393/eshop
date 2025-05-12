@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const contactButton = document.querySelector('.contactbutton');
   const nav = document.querySelector('nav');
   const floatingLogo = document.querySelector('.floating-logo'); // logo
+  const form = document.querySelector('.contact-form');
 
   // Otevření/uzavření menu
   if (menuToggle) {
@@ -30,4 +31,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   });
+
+  // Odeslání formuláře pomocí AJAX
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let formData = new FormData(form);
+
+      fetch('https://formspree.io/f/mnndjdaq', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.ok) {
+          alert('Děkujeme, vaše zpráva byla odeslána!');
+        } else {
+          alert('Došlo k chybě při odesílání formuláře.');
+        }
+      })
+      .catch(error => {
+        alert('Chyba odesílání formuláře.');
+      });
+    });
+  }
 });
