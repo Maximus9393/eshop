@@ -4,27 +4,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kontakt | Tvoje značka</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="kontakt">
+
+  <div class="nav-wrapper">
     <nav>
-        <button class="menu-toggle" aria-label="Otevřít menu">☰</button>
-        <div class="nav-links">
-          <a href="index.html">Domů</a>
-          <a href="o-nas.html">O nás</a>
-          <a href="produkty.html">Produkty</a>
-          <a href="inspirace.html">Inspirace</a>
-          <a href="kontakt.html">Kontakt</a>
-          <a href="recenze.html">Recenze</a>
-        </div>
-      </nav>
+      <button class="menu-toggle" aria-label="Otevřít menu">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Domů</a>
+        <a href="o-nas.html">O nás</a>
+        <a href="produkty.html">Produkty</a>
+        <a href="inspirace.html">Inspirace</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="recenze.html">Recenze</a>
+      </div>
+      <a href="kontakt.html#formular" class="contactbutton">Napište nám</a>
+    </nav>
+  </div>
+
   <section>
-    <h2>Kontaktujte nás</h2>
-    <form class="contact-form">
-      <!-- Formulář jako dříve -->
+    <h2><span>Jak nás kontaktovat</span></h2>
+    <p><span>Máte-li jakékoliv dotazy nebo zájem o naše služby, neváhejte nás kontaktovat. Rádi vám pomůžeme s vaším projektem.</span></p>
+    
+    <div class="contact-info">
+      <p><strong>E-mail:</strong> turecak92@gmail.com</p>
+      <p><strong>Telefon:</strong> +420 608 926 192</p>
+      <p><strong>Adresa:</strong> Příkladná 123, Praha</p>
+    </div>
+  </section>
+
+  <section id="formular">
+    <h2><span>Napište nám</span></h2>
+    <form action="#" method="post" class="contact-form">
+      <label for="jmeno"><span>Vaše jméno</label>
+      <input type="text" id="jmeno" name="jmeno" required>
+
+      <label for="email">Váš e-mail</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="zprava">Zpráva</label>
+      <textarea id="zprava" name="zprava" rows="6" required></textarea>
+
+      <button type="submit" class="btn">Odeslat</button>
     </form>
   </section>
+
+  <footer>
+    <p>&copy; 2025 Miraweb – Weby s charakterem</p>
+    <div class="social-icons">
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Instagram"></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"></a>
+    </div>
+  </footer>
+
   <script src="js/script.js"></script>
 </body>
 </html>
