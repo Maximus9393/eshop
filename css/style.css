@@ -272,7 +272,7 @@ header p {
   text-align: center;
   margin: 0 0 20px 0;
   font-size: 1.1rem;
-  font-weight: 70;
+  font-weight: 100;
   max-width: 800px;
   
 }
@@ -313,7 +313,7 @@ section p {
   font-size: 1.1rem;
   line-height: 1.4;
   max-width: 700px;
-  font-weight: 70;
+  font-weight: 100;
 }
 
 
@@ -474,7 +474,7 @@ section ul span {
 
   label {
   color: #ffffff; /* Změní barvu popisků na modrou */
-  font-weight: 70; /* Volitelně, pro tučný text */
+  font-weight: 100; /* Volitelně, pro tučný text */
   }
 
 /* ===== Footer ===== */
