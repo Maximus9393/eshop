@@ -106,7 +106,7 @@ nav .nav-links a {
   nav {
     justify-content: space-between;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 10px; /* Přidáno padding pro lepší vzhled */
     
   }
