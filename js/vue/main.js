@@ -53,15 +53,91 @@ const MainApp = {
         </nav>
 
         <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h1 class="display-4 fw-bold">Vítejte na mém webu</h1>
-                    <p class="lead">Tady najdete projekty, nápady a věci, které mě baví kódovat.</p>
-                    <a href="#" class="btn btn-primary btn-lg mt-3">Zjistit víc</a>
+            <div class="row mt-2">
+                <div class="col" v-if="activePage === 'home'">
+                    <div class="display-5">Tvoříme weby, které mluví za vás</div>
+                    <p class="mt-1">Tady najdete projekty, nápady a věci, které mě baví kódovat.</p>
+                    <a href="#" class="btn btn-primary mt-2">Zjistit víc</a>
                 </div>
-            </div>
-            <div class="row">
+                
+                <div class="col" v-else-if="activePage === 'about-us'">
+                    <div class="display-5">Kdo jsem?</div>
+                    <p class="mt-1">Jsem Miroslav Svoboda, a nebojím se sám za sebe, proto na této stránce nenajdete žádný text, psaný stylem
+                    "my zařídíme", "my uděláme", "my jsme gigantická firma", ale pouze "já". Věřím v B2B přístup k zákazníkovi a věřím že moji
+                    zákazníci ocení můj osobní přístup k jejich problémům, tak aby vždy věděli že jsou pro mě prioritou..</p>
+                    <a href="#" class="btn btn-primary mt-2 disabled">Zjistit víc</a>
+                </div>
+                
+                <div class="col" v-else-if="activePage === 'products'">
 
+                    <div class="display-5">Jaké produkty Vám mohu nabídnout?</div>
+                    
+                    <p class="mt-1">Specializujeme se na návrh, vývoj a optimalizaci webových stránek a aplikací. Naše nabídka je navržena tak, aby odpovídala potřebám jednotlivců, startupů i firem.</p>
+
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Webdesign
+                            </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                            <div class="accordion-body text-center">
+                                <div class="row">
+                                    <div class="col">
+                                    Vytváříme esteticky čisté a uživatelsky přívětivé weby, které odrážejí vaši značku. Návrh designu je plně responzivní a připravený pro moderní zařízení.
+                                    </div>
+                                    <div class="col">
+                                        <img src="https://cdn.pixabay.com/photo/2020/10/21/18/07/laptop-5673901_960_720.jpg" class="rounded" width="256">
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                E-shopy na míru
+                            </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body text-center">
+                                <div class="row">
+                                    <div class="col">
+                                        Navrhujeme a stavíme e-shopy na platformách jako je WooCommerce, Shopify nebo jako řešení na míru. S důrazem na rychlost, bezpečnost a UX.
+                                    </div>
+                                    <div class="col">
+                                        <img src="https://cdn.pixabay.com/photo/2019/11/22/20/59/black-friday-4645768_960_720.jpg" class="rounded" width="256">
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                UX / UI Design
+                            </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body text-center">
+                                <div class="row">
+                                    <div class="col">
+                                    Navrhujeme strukturu, logiku a vzhled vašich digitálních produktů tak, aby byly snadno použitelné, funkční a přirozené pro uživatele.
+                                    </div>
+                                    <div class="col">
+                                        <img src="https://cdn.pixabay.com/photo/2015/05/28/14/53/ux-788002_1280.jpg" width="256">
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col text-center" v-else>
+                    <span class="display-5"><i class="bi bi-bug"></i> Kámo jdu spát, funguje "Domů", "O nás" a "Produkty" <i class="bi bi-bug"></i></span>
+                </div>
             </div>
         </div>  
     `
