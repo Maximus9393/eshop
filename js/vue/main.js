@@ -1,5 +1,5 @@
 import { createApp, onMounted, onUnmounted, ref, reactive } from 'vue'
-import Navbar from './navbar'
+import Navbar from './navbar.js'
 
 // My, neochotní, vedeni neznalými, děláme nemožné pro nevděčné. Tolik jsme toho dokázali, tak dlouho, 
 // s tak málem, že jsme nyní kvalifikovaní dělat cokoli z ničeho.
