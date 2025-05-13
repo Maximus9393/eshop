@@ -78,13 +78,14 @@ nav a:hover {
 }
 
 nav .menu-toggle {
-  font-size: 2rem;
+  font-size: 1.5rem;
   background: none;
   border: none;
   color: #333;
   cursor: pointer;
   display: none;
   transition: color 0.3s ease;
+  padding: 6px 12px;     /* menší prostor kolem */
 }
 
 nav .menu-toggle:hover {
@@ -97,7 +98,7 @@ nav .nav-links {
 }
 
 nav .nav-links a {
-  margin: 0 10px;
+  margin: 0 5px;
 }
 
 /* ===== RESPONSIVITA: Tlačítko pro mobil ===== */
@@ -112,7 +113,8 @@ nav .nav-links a {
 
   nav .menu-toggle {
     display: block; /* Zobrazí tlačítko pro mobilní zařízení */
-    font-size: 2rem; /* Zvětší tlačítko na mobilu */
+    font-size: 1.5rem;     /* menší ikonka */
+    padding: 6px 12px;     /* menší prostor kolem */
   }
 
   nav .nav-links {
@@ -129,31 +131,67 @@ nav .nav-links a {
   }
 
   .contactbutton {
-    top: auto;
-    bottom: 20px;
+    top: 30px;
     right: 20px;
+    left: auto; /* ujisti se, že není vlevo */
+    width: auto; /* zabrání natažení na celou šířku */
+    padding: 0.5rem 1rem; /* menší výplň */
+    font-size: 0.95rem; /* menší text */
     border-radius: 50px;
+    white-space: nowrap; /* zabrání zalomení textu */
+    
   }
 }
 
 
 /* Další responsivní nastavení pro menší zařízení */
 @media (max-width: 480px) {
-  nav .menu-toggle {
-    font-size: 1.8rem;
+  nav {
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px; /* Přidáno padding pro lepší vzhled */
+    
   }
 
-  nav .nav-links a {
-    margin: 0 8px;
-    font-size: 1.1rem; /* Mírně zmenší text pro mobilní zařízení */
+  nav .menu-toggle {
+    display: block; /* Zobrazí tlačítko pro mobilní zařízení */
+    font-size: 1.5rem;     /* menší ikonka */
+    padding: 6px 12px;     /* menší prostor kolem */
+  }
+
+  nav .nav-links {
+    display: none; /* Skryje navigaci na mobilu */
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 10px 0; /* Přidáno padding pro lepší vzhled */
+  }
+
+  nav.nav-open .nav-links {
+    display: flex; /* Zobrazí navigaci po kliknutí na tlačítko */
+  }
+
+  .contactbutton {
+    top: 30px;
+    right: 20px;
+    left: auto; /* ujisti se, že není vlevo */
+    width: auto; /* zabrání natažení na celou šířku */
+    padding: 0.5rem 1rem; /* menší výplň */
+    font-size: 0.95rem; /* menší text */
+    border-radius: 50px;
+    white-space: nowrap; /* zabrání zalomení textu */
+    
   }
 }
 
 
 
+
 .contactbutton {
   position: fixed;
-  top: 20px;
+  top: 30px;
   right: 20px; /* Pokud nemá být mimo obrazovku */
   background-color: #007B8A;
   color: white;
@@ -166,6 +204,7 @@ nav .nav-links a {
   font-family: 'Work Sans', sans-serif;
   white-space: nowrap;
   z-index: 999;
+  
 }
 .contactbutton a {
   text-decoration: none;
