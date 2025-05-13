@@ -115,6 +115,8 @@ nav .nav-links a {
     display: block; /* Zobrazí tlačítko pro mobilní zařízení */
     font-size: 1.5rem;     /* menší ikonka */
     padding: 6px 12px;     /* menší prostor kolem */
+    order: -1;
+    margin-bottom: 10px
   }
 
   nav .nav-links {
