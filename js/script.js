@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const form = document.querySelector('.contact-form');
 
   // Otevření/uzavření menu
-  if (menuToggle) {
+  if (menuToggle && nav) {
     menuToggle.addEventListener('click', function () {
-      navLinks.classList.toggle('active');
+      nav.classList.toggle('nav-open');
     });
   }
 
