@@ -13,7 +13,7 @@ body {
 }
 
 /* Animace pozadí pro každou stránku */
-@keyframes backgroundColorChangeIndex {
+@keyframes backgroundColorChange {
   0% { background: #1f0288; }
   25% { background: #130161; }
   50% { background: #15014b; }
@@ -21,55 +21,15 @@ body {
   100% { background: #1f0288; }
 }
 
-@keyframes backgroundColorChangeONas {
-  0% { background: #1f0288; }
-  25% { background: #130161; }
-  50% { background: #15014b; }
-  75% { background: #2f0133; }
-  100% { background: #1f0288; }
+body.index,
+body.o-nas,
+body.produkty,
+body.inspirace,
+body.kontakt,
+body.recenze {
+  animation: backgroundColorChange 30s ease infinite;
 }
 
-@keyframes backgroundColorChangeProdukty {
-  0% { background: #1f0288; }
-  25% { background: #130161; }
-  50% { background: #15014b; }
-  75% { background: #2f0133; }
-  100% { background: #1f0288; }
-}
-
-@keyframes backgroundColorChangeInspirace {
-  0% { background: #1f0288; }
-  25% { background: #130161; }
-  50% { background: #15014b; }
-  75% { background: #2f0133; }
-  100% { background: #1f0288; }
-}
-
-@keyframes backgroundColorChangeKontakt {
-  0% { background: #1f0288; }
-  25% { background: #130161; }
-  50% { background: #15014b; }
-  75% { background: #2f0133; }
-  100% { background: #1f0288; }
-}
-
-@keyframes backgroundColorChangeRecenze {
-  0% { background: #1f0288; }
-  25% { background: #130161; }
-  50% { background: #15014b; }
-  75% { background: #2f0133; }
-  100% { background: #1f0288; }
-}
-
-/* Použití animace */
-body.index { animation: backgroundColorChangeIndex 30s ease infinite; }
-body.o-nas { animation: backgroundColorChangeONas 30s ease infinite; }
-body.produkty { animation: backgroundColorChangeProdukty 30s ease infinite; }
-body.inspirace { animation: backgroundColorChangeInspirace 30s ease infinite; }
-body.kontakt { animation: backgroundColorChangeKontakt 30s ease infinite; }
-body.recenze { animation: backgroundColorChangeRecenze 30s ease infinite; }
-
-/* ===== Navigace a tlačítko ===== */
 /* ===== Navigace a tlačítko ===== */
 .nav-wrapper {
   position: fixed;
@@ -80,8 +40,8 @@ body.recenze { animation: backgroundColorChangeRecenze 30s ease infinite; }
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 40px;
-  z-index: 1001;
+  padding: 0 4px;
+  z-index: 1000;
 }
 
 nav {
@@ -146,10 +106,13 @@ nav .nav-links a {
     justify-content: space-between;
     flex-direction: column;
     align-items: flex-start;
+    padding: 10px; /* Přidáno padding pro lepší vzhled */
+    
   }
 
   nav .menu-toggle {
-    display: block;
+    display: block; /* Zobrazí tlačítko pro mobilní zařízení */
+    font-size: 2rem; /* Zvětší tlačítko na mobilu */
   }
 
   nav .nav-links {
@@ -158,12 +121,21 @@ nav .nav-links a {
     flex-direction: column;
     gap: 10px;
     margin-top: 10px;
+    padding: 10px 0; /* Přidáno padding pro lepší vzhled */
   }
 
   nav.nav-open .nav-links {
     display: flex; /* Zobrazí navigaci po kliknutí na tlačítko */
   }
+
+  .contactbutton {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50px;
+  }
 }
+
 
 /* Další responsivní nastavení pro menší zařízení */
 @media (max-width: 480px) {
@@ -173,11 +145,16 @@ nav .nav-links a {
 
   nav .nav-links a {
     margin: 0 8px;
+    font-size: 1.1rem; /* Mírně zmenší text pro mobilní zařízení */
   }
 }
 
 
+
 .contactbutton {
+  position: fixed;
+  top: 20px;
+  right: 20px; /* Pokud nemá být mimo obrazovku */
   background-color: #007B8A;
   color: white;
   padding: 0.6rem 1.4rem;
@@ -185,13 +162,31 @@ nav .nav-links a {
   text-decoration: none;
   font-weight: 500;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease;
+  transition: background-color 0.5s ease, color 0.3s ease, opacity 0.5s ease, transform 0.5s ease;
   font-family: 'Work Sans', sans-serif;
   white-space: nowrap;
+  z-index: 999;
 }
-
+.contactbutton a {
+  text-decoration: none;
+  color: #ffffff;
+  margin: 0 15px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.contactbutton a:hover {
+  color: #1d0e0e;
+}
 .contactbutton:hover {
   background-color: #005f66;
+  color: #f0f0f0;
+}
+
+.contactbutton.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-30px);
+  transition: opacity 1s ease, visibility 1s ease, transform 1s ease;
 }
 
 .floating-logo {
@@ -223,6 +218,7 @@ header h1 {
   font-size: 3.5rem;
   font-weight: 700;
   max-width: 800px;
+  
 }
 header h2 {
   text-align: left;
@@ -230,6 +226,7 @@ header h2 {
   font-size: 3.5rem;
   font-weight: 700;
   max-width: 900px;
+  
 }
 
 header p {
@@ -238,6 +235,7 @@ header p {
   font-size: 1.1rem;
   font-weight: 70;
   max-width: 800px;
+  
 }
 
 .header-logo {
@@ -292,13 +290,6 @@ section ul span {
   color: var(--highlight-color);
 }
 
-.highlight {
-  color: #c4b70dd2; /* nebo jiná barva dle designu */
-}
-
-:root {
-  --highlight-color: #f3f3f3d2; /* nebo jiná barva dle designu */
-}
 
 .about-image {
   margin-top: 20px; /* přidá mezeru nad obrázkem */
@@ -497,5 +488,7 @@ footer {
     transition: opacity 0.3s ease;
     pointer-events: none;
   }
+
+
   
 }
