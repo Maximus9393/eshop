@@ -1,9 +1,16 @@
-import { createApp, onMounted, onUnmounted, ref, reactive } from 'vue'
+import { createApp, onMounted, onUnmounted, ref, reactive, computed } from 'vue'
 
 const MainApp = {
     components: {},
     setup() {
         const activePage = ref('home')
+
+        const hours = ref(1)
+        const hourlyRate = 1000
+        
+        const result = computed(() => {
+            return hourlyRate * hours.value
+        })
 
         const navItems = [
             { name: 'home', label: 'Domů' },
@@ -16,7 +23,10 @@ const MainApp = {
 
         return {
             activePage,
-            navItems
+            navItems,
+            hourlyRate, 
+            hours,
+            result
         }
     },
     template: /*html*/`
@@ -71,8 +81,46 @@ const MainApp = {
                 <div class="col" v-else-if="activePage === 'products'">
 
                     <div class="display-5">Jaké produkty Vám mohu nabídnout?</div>
-                    
+
                     <p class="mt-1">Specializujeme se na návrh, vývoj a optimalizaci webových stránek a aplikací. Naše nabídka je navržena tak, aby odpovídala potřebám jednotlivců, startupů i firem.</p>
+
+                    <table class="table table-bordered table-sm w-50 mx-auto">
+                        <thead>
+                            <tr>
+                                <th colspan="3" class="text-center">Cenová kalkulace</th>
+                            </tr>
+                            <tr>
+                                <th>Hodinový sazba</th>
+                                <th>Počet hodin práce</th>
+                                <th>Celková cena</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ hourlyRate }} $</td>
+                                <td>{{ hours }} h</td>
+                                <td>{{ result }} $</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" valign="middle">
+                                    <div class="d-flex justify-content-end">
+                                        <span class="text-muted ms-2">
+                                            Zadejte odhadovaný počet hodin práce:
+                                        </span>
+                                        <button class="btn btn-primary btn-sm ms-2"
+                                            @click="hours++">
+                                            <i class="bi bi-plus"></i>
+                                        </button>
+                                        <button class="btn btn-secondary btn-sm ms-2"
+                                            @click="hours--">
+                                            <i class="bi bi-dash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
 
                     <div class="accordion" id="accordionExample">
                         <div class="accordion-item">
