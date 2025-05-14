@@ -66,6 +66,8 @@ const MainApp = {
                     "my zařídíme", "my uděláme", "my jsme gigantická firma", ale pouze "já". Věřím v B2B přístup k zákazníkovi a věřím že moji
                     zákazníci ocení můj osobní přístup k jejich problémům, tak aby vždy věděli že jsou pro mě prioritou..</p>
                     <a href="#" class="btn btn-primary mt-2 disabled">Zjistit víc</a>
+
+                    
                 </div>
                 
                 <div class="col" v-else-if="activePage === 'products'">
