@@ -41,7 +41,7 @@ const MainApp = {
                         <li class="nav-item" v-for="item in navItems" :key="item.name">
                             <a class="nav-link"
                             href="#"
-                            @click.prevent="activePage = item.name"
+                            @click="activePage = item.name"
                             :class="{ active: activePage === item.name, disabled: item.disabled }">
                             {{ item.label }}
                             </a>
