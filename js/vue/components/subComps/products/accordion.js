@@ -2,71 +2,18 @@ import { ref, reactive, computed } from 'vue'
 
 export default {
     setup() {
-        const hours = ref(1)
-        const hourlyRate = 1000
-        
-        const result = computed(() => {
-            return hourlyRate * hours.value
-        })
-
-        return {
-            hours,
-            hourlyRate,
-            result
-        }
+        return {}
     },
     template: /*html*/`
-        <div class="display-5">Jaké produkty Vám mohu nabídnout?</div>
-
-        <p class="mt-1">Specializujeme se na návrh, vývoj a optimalizaci webových stránek a aplikací. Naše nabídka je navržena tak, aby odpovídala potřebám jednotlivců, startupů i firem.</p>
-
-        <table class="table table-bordered table-sm w-50 mx-auto">
-            <thead>
-                <tr>
-                    <th colspan="3" class="text-center">Cenová kalkulace</th>
-                </tr>
-                <tr>
-                    <th>Hodinový sazba</th>
-                    <th>Počet hodin práce</th>
-                    <th>Celková cena</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ hourlyRate }} $</td>
-                    <td>{{ hours }} h</td>
-                    <td>{{ result }} $</td>
-                </tr>
-                <tr>
-                    <td colspan="3" valign="middle">
-                        <div class="d-flex justify-content-end">
-                            <span class="text-muted ms-2">
-                                Zadejte odhadovaný počet hodin práce:
-                            </span>
-                            <button class="btn btn-primary btn-sm ms-2"
-                                @click="hours++">
-                                <i class="bi bi-plus"></i>
-                            </button>
-                            <button class="btn btn-secondary btn-sm ms-2"
-                                @click="hours--">
-                                <i class="bi bi-dash"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-            
-        </table>
-
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Webdesign
-                </button>
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Webdesign
+                    </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                <div class="accordion-body text-center">
+                <div class="accordion-body text-center bg-primary-subtle">
                     <div class="row">
                         <div class="col">
                         Vytváříme esteticky čisté a uživatelsky přívětivé weby, které odrážejí vaši značku. Návrh designu je plně responzivní a připravený pro moderní zařízení.

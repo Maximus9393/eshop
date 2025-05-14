@@ -1,8 +1,8 @@
 import { createApp, onMounted, onUnmounted, ref, reactive, computed } from 'vue'
 
-import Products from './products.js'
-import AboutUs from './about-us.js'
-import Home from './home.js'
+import Products from './components/products.js'
+import AboutUs from './components/about-us.js'
+import Home from './components/home.js'
 
 const MainApp = {
     components: {
@@ -22,9 +22,24 @@ const MainApp = {
             { name: 'reviews', label: 'Recenze', disabled: true },
         ]
 
+        const isLight = ref(false)
+
+        const switchTheme = () => {
+            if (document.documentElement.getAttribute('data-bs-theme') == 'dark') {
+                document.documentElement.setAttribute('data-bs-theme','light')
+                isLight.value = true
+            }
+            else {
+                document.documentElement.setAttribute('data-bs-theme','dark')
+                isLight.value = false
+            }
+        }
+
         return {
             activePage,
-            navItems
+            navItems,
+            isLight,
+            switchTheme
         }
     },
     template: /*html*/`
@@ -53,6 +68,14 @@ const MainApp = {
                             :class="{ active: activePage === item.name, disabled: item.disabled }">
                             {{ item.label }}
                             </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="btn btn-secondary btn-sm rounded-4 ms-1 mt-1"
+                                @click="switchTheme">
+                                <i v-if="isLight" class="bi bi-lightbulb"></i>
+                                <i v-else class="bi bi-lightbulb-fill"></i>
+                            </button>
                         </li>
 
                     </ul>

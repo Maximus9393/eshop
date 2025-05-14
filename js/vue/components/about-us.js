@@ -2,18 +2,7 @@ import { ref, reactive, computed } from 'vue'
 
 export default {
     setup() {
-        const hours = ref(1)
-        const hourlyRate = 1000
-        
-        const result = computed(() => {
-            return hourlyRate * hours.value
-        })
-
-        return {
-            hours,
-            hourlyRate,
-            result
-        }
+        return {}
     },
     template: /*html*/`
         <div class="display-5">Kdo jsem?</div>
