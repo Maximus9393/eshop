@@ -11,6 +11,8 @@ export default {
             { src: './img/architektura.jpg' },
         ]
 
+        // Coment
+        
         const imageSrc = computed(() => {
             imageIndex.value = Math.min(imageIndex.value, imagesSrcs.length - 1)
 
