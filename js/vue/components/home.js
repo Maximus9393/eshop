@@ -3,6 +3,7 @@ import { ref, reactive, computed } from 'vue'
 export default {
     setup() {
         const imageIndex = ref(0)
+        const direction = ref(1)
 
         const imagesSrcs = [
             { src: './img/stul.jpg' },
@@ -11,20 +12,33 @@ export default {
             { src: './img/architektura.jpg' },
         ]
 
-        // Coment
-        
         const imageSrc = computed(() => {
-            imageIndex.value = Math.min(imageIndex.value, imagesSrcs.length - 1)
-
-            // Úkol, -> Když dojedu nakonec, chci jet odkonce zpátky na začátek.
-            // když dojedu na začátek chci znovu jet nakonec.
-
-            return imagesSrcs[imageIndex.value]
+            return imagesSrcs[imageIndex.value] ?? { src: ''}
         })
+
+        const nextImage = () => {
+        const next = imageIndex.value + direction.value
+
+            if (next >= imagesSrcs.length) {
+                 direction.value = -1
+                 imageIndex.value = imagesSrcs.length - 2
+        }   else if (next < 0) {
+                direction.value = 1
+                imageIndex.value = 1
+  }         else {
+                imageIndex.value = next
+  }
+        
+
+            
+        }
 
         return {
             imageIndex,
-            imageSrc
+            direction,
+            imagesSrcs,
+            imageSrc,
+            nextImage
         }
     },
     template: /*html*/`
@@ -51,7 +65,7 @@ export default {
             </div>
             <div class="col">
                 <img :src="imageSrc.src"
-                    @click="imageIndex++" 
+                    @click="nextImage" 
                     class="rounded" 
                     width="256">
             </div>
